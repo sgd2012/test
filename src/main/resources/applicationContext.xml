@@ -39,11 +39,13 @@
 	<!-- mybatis文件配置，扫描所有mapper文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" p:dataSource-ref="dataSource"
           p:configLocation="classpath:mybatis-config.xml"
-          p:mapperLocations="classpath:com/xiaoyu/web/po/*.xml"/>
+          p:mapperLocations="classpath:com/xiaoyu/web/dao/*.xml"/>
           
     <!-- spring与mybatis整合配置，扫描所有dao -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:basePackage="com.xiaoyu.web.dao"
-          p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
+          >
+          <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
           
     <!-- 对dataSource 数据源进行事务管理 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
