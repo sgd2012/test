@@ -46,6 +46,11 @@
           >
           <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
+    
+    <bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+         <property name="mapperInterface" value="com.xiaoyu.web.dao.UserDao"></property>
+         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    </bean>
           
     <!-- 对dataSource 数据源进行事务管理 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"

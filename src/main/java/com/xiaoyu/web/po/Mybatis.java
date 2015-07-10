@@ -1,6 +1,6 @@
 package com.xiaoyu.web.po;
 
-public class User {
+public class Mybatis {
 	private String id;
 	
 	private String name;
