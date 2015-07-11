@@ -10,6 +10,7 @@ import com.xiaoyu.web.po.Mybatis;
 @Repository("userDao")
 public interface UserDao {
 	
+	
 	@Select("select * from mybatis ")
 	public List<Mybatis> getUserList();
 }
