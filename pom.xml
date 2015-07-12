@@ -24,6 +24,14 @@
 	</repositories>
 
 	<build>
+	
+		<resources>
+			<!-- 配置web资源过滤目录 -->
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
@@ -43,6 +51,34 @@
 		<mysql.connection>5.1.28</mysql.connection>
 		<aspectj.version>1.6.12</aspectj.version>
 	</properties>
+
+	<profiles>
+		<profile>
+			<id>su</id>
+			<activation>
+				<jdk>1.6.0_43</jdk>
+			</activation>
+			<properties>
+				<db.driver>com.mysql.jdbc.Driver</db.driver>
+				<db.url>jdbc:mysql://127.0.0.1:3306/mybatis</db.url>
+				<db.username>root</db.username>
+				<db.password>root</db.password>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>ns</id>
+			<activation>
+				<jdk>1.6.0_42</jdk>
+			</activation>
+			<properties>
+				<db.driver>oracle.jdbc.driver.OracleDriver</db.driver>
+				<db.url>jdbc:oracle:thin:@127.0.0.1:1521:orcl</db.url>
+				<db.username>test1</db.username>
+				<db.password>test1</db.password>
+			</properties>
+		</profile>
+	</profiles>
 
 	<dependencies>
 		<!-- spring start -->
@@ -214,7 +250,7 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
-			<version>1.1.1</version>
+			<version>1.0.0</version>
 		</dependency>
 		
 		<dependency>
