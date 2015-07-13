@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.xiaoyu.web.po.Mybatis;
 
-@Repository("userDao")
+
 public interface UserDao {
 	
 	

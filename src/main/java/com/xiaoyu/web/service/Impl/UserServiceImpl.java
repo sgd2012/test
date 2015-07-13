@@ -12,10 +12,10 @@ import com.xiaoyu.web.service.UserService;
 @Service("userServiceImpl")
 public class UserServiceImpl implements UserService {
 	@Autowired
-	private UserDao userDao;
+	private UserDao userDaoImpl;
 	
 	public List<Mybatis> getUserList() {
-		List<Mybatis> list = userDao.getUserList();
+		List<Mybatis> list = userDaoImpl.getUserList();
 		for (int i = 0; i < list.size(); i++) {
 			Mybatis mybati = list.get(i);
 			System.out.println(mybati.getId());
